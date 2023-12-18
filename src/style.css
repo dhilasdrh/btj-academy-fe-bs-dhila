@@ -1,7 +1,32 @@
+/* :root {
+    --primary-color: #4161d3;
+    --text-color: black;
+    --bs-card-color: black;
+    --mark-text-color: #4161d3;
+    --mark-background-color: linear-gradient(to top, yellow 50%, transparent 50%);
+}
+
+
+ :root[data-theme="dark"] {
+    --primary-color: #636aee;
+    --text-color: white;
+    --bs-card-color: white;
+    --mark-text-color: #dcdbf9;
+    --mark-background-color: var(--primary-color) 50%;
+} 
+
+* {
+    color: var(--text-color)
+} */
+
 :root {
     --primary-color: #4161d3;
     --bs-highlight-bg: linear-gradient(to top, yellow 50%, transparent 50%) !important; 
 }
+
+:root[data-theme="dark"] {
+    --primary-color: #636aee;
+} 
 
 #navMenu > a {
     color: black !important;
