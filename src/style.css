@@ -1,0 +1,85 @@
+/* :root {
+    --primary-color: #4161d3;
+    --text-color: black;
+    --mark-text-color: #4161d3;
+    --mark-background-color: linear-gradient(to top, yellow 50%, transparent 50%);
+}
+
+
+ :root[data-theme="dark"] {
+    --primary-color: #636aee;
+    --text-color: white;
+    --mark-text-color: #dcdbf9;
+    --mark-background-color: var(--primary-color) 50%;
+} 
+
+* {
+    color: var(--text-color)
+} */
+
+:root {
+    --primary-color: #4161d3;
+    
+}
+
+:root[data-theme="dark"] {
+    --primary-color: #636aee;
+} 
+
+
+#navMenu > a {
+    color: black !important;
+}
+
+#navMenu a.active {
+    font-weight: bold;
+    color: blue !important;
+    border-bottom: 2px solid blue;
+}
+
+.font-weight-bold {
+    font-weight: bold !important;
+}
+
+mark {
+    font-weight: bold;
+    /* color: var(--mark-text-color) !important;
+    background: var(--mark-background-color) !important; */
+}
+
+h1, h2, h3, h4, .nav-link {
+    color: var(--primary-color) !important;
+}
+
+#quote {
+    font-size: 1rem !important;
+}
+
+#loginContainer {
+    background-color: rgb(161,209,245, 0.2);
+}
+
+.animated-section {
+    opacity: 0;
+}
+
+#section-education {
+    left: 200px; 
+    position: relative;
+}
+
+#section-motto {
+    right: 200px; 
+    position: relative;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        justify-content: center !important;
+    }
+
+    #navMenu {
+        justify-content: center !important;
+    }
+}
