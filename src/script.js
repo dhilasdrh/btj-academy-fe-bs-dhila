@@ -126,26 +126,72 @@ $(document).ready(function () {
         }
     };
 
+    /* -------- jQuery Effects -------- */
+    
+    $("#promptLogin").hide(); // initially hide prompt login 
+    $("#promptLogin").slideDown(700); // display prompt login by sliding it down
+    
+
+    // $("#name").slideDown();
+
+    $('#imgLogin').animate({
+        scale: 1
+    }, 1000)
+
+
+    // animated letter spacing for logo title (Welcome)
+    $("#logoTitle").on('click', function(){
+        if ($(this).hasClass('animated')) {
+            // If the element has the 'animated' class, remove it and animate back to the original state
+            $(this).animate({
+                marginLeft: '0',
+                letterSpacing: '0'
+            }, 1000).removeClass('animated');
+        } else {
+            // If the element doesn't have the 'animated' class, add it and animate
+            $(this).animate({
+                marginLeft: '10px',
+                letterSpacing: '2px'
+            }, 1000).addClass('animated');
+        }}); 
+
+
+    // typing and fade-in fade-out effect for name
+    var name = $("#name").text();
+    var speed = 200; // 1s
+
+    function typeWriter(text, i) {
+        $("#name").text(text.substring(0, i + 1));
+        
+        if (i === text.length) {
+            pointer.fadeToggle(speed, () => typeWriter(text, i));
+        } else {
+            $("#name").fadeIn(speed, () => setTimeout(() => typeWriter(text, i + 1), speed));
+        }
+    }
+    setTimeout(() => typeWriter(name, 0), 100);
+
+
 
     /* ------ TOGGLE DARK/LIGHT MODE TOGGLE ------- */
     
-    // load theme mode state from localStorage
-    const darkModeToggle = $('#darkModeSwitch');
-    const rootElement = $(':root');
-    const initialDarkModeState = localStorage.getItem('darkMode') === 'false';
-    darkModeToggle.prop('checked', initialDarkModeState);
-    rootElement.attr('data-theme', initialDarkModeState ? 'dark' : 'light');
+    // // load theme mode state from localStorage
+    // const darkModeToggle = $('#darkModeSwitch');
+    // const rootElement = $(':root');
+    // const initialDarkModeState = localStorage.getItem('darkMode') === 'false';
+    // darkModeToggle.prop('checked', initialDarkModeState);
+    // rootElement.attr('data-theme', initialDarkModeState ? 'dark' : 'light');
 
-    darkModeToggle.on('change', function () {
-        const isDarkMode = darkModeToggle.is(':checked');
-        // $('#main-container').toggleClass('bg-dark', isDarkMode);
-        rootElement.attr('data-theme', isDarkMode ? 'dark' : '');
-        saveDarkModeState(isDarkMode);
-    });
+    // darkModeToggle.on('change', function () {
+    //     const isDarkMode = darkModeToggle.is(':checked');
+    //     $('#main-container').toggleClass('bg-dark', isDarkMode);
+    //     rootElement.attr('data-theme', isDarkMode ? 'dark' : '');
+    //     saveDarkModeState(isDarkMode);
+    // });
 
-    function saveDarkModeState(isDarkMode) {
-        localStorage.setItem('darkMode', isDarkMode);
-    }
+    // function saveDarkModeState(isDarkMode) {
+    //     localStorage.setItem('darkMode', isDarkMode);
+    // }
 
     
    /* ------ ANIMATED SECTION & SCROLL UP/DOWN BUTTONS ------ */
@@ -204,40 +250,10 @@ $(document).ready(function () {
     });
 
 
-    /* -------- jQuery Effects -------- */
     
-    $("#promptLogin").hide(); // initially hide prompt login 
-    $("#promptLogin").slideDown(700); // display prompt login by sliding it down
-    
-
-    // $("#name").slideDown();
-
-    // smoothly shrinking the image by adding space (padding) around them
-
-    $('#imgLogin').animate({
-        padding: '10px',
-    }, 1000)
-
-
-    // animated letter spacing for logo title (Welcome)
-    $("#logoTitle").on('click', function(){
-        if ($(this).hasClass('animated')) {
-            // If the element has the 'animated' class, remove it and animate back to the original state
-            $(this).animate({
-                marginLeft: '0',
-                letterSpacing: '0'
-            }, 700).removeClass('animated');
-        } else {
-            // If the element doesn't have the 'animated' class, add it and animate
-            $(this).animate({
-                marginLeft: '10px',
-                letterSpacing: '2px'
-            }, 700).addClass('animated');
-        }}); 
-
-
     // show profile img
-    $(".profile-img").show(500);
+    $("#profileImg").hide();
+    $("#profileImg").show(500);
 
     // floating image on login page
     function floatImage() {
@@ -247,28 +263,4 @@ $(document).ready(function () {
     }
   
     floatImage(); // Start the animation
-
-
-
-
-
-
-    // typing and fade-in fade-out effect for name
-    var name = $("#name").text();
-    var speed = 100; // 1s
-
-    function typeWriter(text, i) {
-        $("#name").text(text.substring(0, i + 1));
-        
-        if (i === text.length) {
-            pointer.fadeToggle(speed, () => typeWriter(text, i));
-        } else {
-            $("#name").fadeIn(speed, () => setTimeout(() => typeWriter(text, i + 1), speed));
-        }
-    }
-    setTimeout(() => typeWriter(name, 0), 100);
-
-
-
-
 });

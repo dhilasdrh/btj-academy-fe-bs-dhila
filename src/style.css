@@ -1,31 +1,7 @@
-/* :root {
-    --primary-color: #4161d3;
-    --text-color: black;
-    --mark-text-color: #4161d3;
-    --mark-background-color: linear-gradient(to top, yellow 50%, transparent 50%);
-}
-
-
- :root[data-theme="dark"] {
-    --primary-color: #636aee;
-    --text-color: white;
-    --mark-text-color: #dcdbf9;
-    --mark-background-color: var(--primary-color) 50%;
-} 
-
-* {
-    color: var(--text-color)
-} */
-
 :root {
     --primary-color: #4161d3;
-    
+    --bs-highlight-bg: linear-gradient(to top, yellow 50%, transparent 50%) !important; 
 }
-
-:root[data-theme="dark"] {
-    --primary-color: #636aee;
-} 
-
 
 #navMenu > a {
     color: black !important;
@@ -43,11 +19,12 @@
 
 mark {
     font-weight: bold;
-    /* color: var(--mark-text-color) !important;
-    background: var(--mark-background-color) !important; */
+    background: var(--bs-highlight-bg);
+    font-family: Poppins;
 }
 
-h1, h2, h3, h4, .nav-link {
+h1, h2, h3, h4, h5 {
+    font-weight: bold !important;
     color: var(--primary-color) !important;
 }
 
@@ -64,15 +41,12 @@ h1, h2, h3, h4, .nav-link {
 }
 
 #section-education {
-    left: 200px; 
-    position: relative;
+    left: 200px;
 }
 
 #section-motto {
     right: 200px; 
-    position: relative;
 }
-
 
 @media (max-width: 768px) {
     .navbar-brand {
